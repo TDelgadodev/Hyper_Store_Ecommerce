@@ -23,7 +23,7 @@ const toggleFavorite = async (id,{target}) => {
     const {
       ok,
       data: { isRemove },
-    } = await fetch(`${URL_API_SERVER || URL_API_DEPLOY}/favorites/toggle`, {
+    } = await fetch(`${URL_API_DEPLOY}/favorites/toggle`, {
       method: "POST",
       body: JSON.stringify(objProductId),
       headers: {
