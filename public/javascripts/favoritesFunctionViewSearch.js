@@ -1,6 +1,8 @@
 const userId = document.body.getAttribute('data-userId');
 
 const URL_API_SERVER = "http://localhost:3000/api";
+const URL_API_DEPLOY = 'https://hyper-store-50vb.onrender.com/api';
+
 const toggleFavorite = async (id,{target}) => {
   try {
     if(!userId){
@@ -21,7 +23,7 @@ const toggleFavorite = async (id,{target}) => {
     const {
       ok,
       data: { isRemove },
-    } = await fetch(`${URL_API_SERVER}/favorites/toggle`, {
+    } = await fetch(`${URL_API_SERVER || URL_API_DEPLOY}/favorites/toggle`, {
       method: "POST",
       body: JSON.stringify(objProductId),
       headers: {
