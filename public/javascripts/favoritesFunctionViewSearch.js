@@ -1,6 +1,5 @@
 const userId = document.body.getAttribute('data-userId');
 
-const URL_API_SERVER = "http://localhost:3000/api";
 const URL_API_DEPLOY = 'https://hyper-store-50vb.onrender.com/api';
 
 const toggleFavorite = async (id,{target}) => {
