@@ -50,10 +50,10 @@ module.exports = {
         defaults : { userId, productId } 
     }
 
-    const [favorite, isCreated] = await db.Favorite.findOrCreate(config);
+    const [Favorite, isCreated] = await db.Favorite.findOrCreate(config);
 
     if(!isCreated){
-        await favorite.destroy()
+        await Favorite.destroy()
     }
 
     return !isCreated;

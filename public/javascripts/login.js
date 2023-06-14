@@ -1,5 +1,3 @@
-console.log('login.js Success!');
-
 const $ = (id) => document.getElementById(id);
 
 //CAPTURANDO ELEMENTOS

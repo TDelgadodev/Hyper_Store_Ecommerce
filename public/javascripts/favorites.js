@@ -1,8 +1,9 @@
 const cardsContainer = document.querySelector("#cards-container");
 const URL_API_SERVER = "http://localhost:3000/api";
+const URL_API_DEPLOY = 'https://hyper-store-50vb.onrender.com/api';
 
 const getFavorites = async () => {
-  return fetch(`${URL_API_SERVER}/favorites`).then((res) => res.json());
+  return fetch(`${URL_API_SERVER || URL_API_DEPLOY}/favorites`).then((res) => res.json());
 };
 const convertFormatPeso = (n) =>
   n.toLocaleString("es-AR", {

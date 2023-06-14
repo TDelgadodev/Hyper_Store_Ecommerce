@@ -8,8 +8,8 @@ const {
 module.exports = {
   getFavorites: async (req, res) => {
     try {
-       const { id } = req.session.userLogin;
-       const user = await getUserWithFavorites({ userId: id });
+       //const { id } = req.session.userLogin;
+       const user = await getUserWithFavorites({ userId: 1 });
       sendSucessResponse(res, { data: user.productFavorites });
     } catch (error) {
       createResponseError(res, error);
@@ -17,9 +17,9 @@ module.exports = {
   },
   toggleProductFavorite: async (req, res) => {
     try {
-       const { id } = req.session.userLogin;
+       //const { id } = req.session.userLogin;
        const { productId } = req.body;
-      const isRemove = await addOrRemoveToFavorite({ userId: id, productId });
+      const isRemove = await addOrRemoveToFavorite({ userId: 1, productId });
       sendSucessResponse(res, { data: { isRemove } });
     } catch (error) {
       createResponseError(res, error);
