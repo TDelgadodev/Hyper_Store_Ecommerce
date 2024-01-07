@@ -20,6 +20,26 @@ module.exports = (sequelize, DataTypes) => {
       User.belongsTo(models.Rol,{
         foreignKey : 'rolId',
         as : 'rol'
+      });
+
+      User.hasMany(models.Order,{
+        foreignKey:'userId',
+        as:'orders',
+        onDelete : 'cascade'
+      });
+
+/*       User.hasMany(models.Cart, {
+        foreignKey: 'userId',
+        as: 'carts',
+        onDelete: 'cascade'
+      }); */
+
+      User.belongsToMany(models.Product,{
+        foreignKey : 'userId',
+        otherKey : 'productId',
+        through : 'favorites',
+        as : 'productFavorites',
+        onDelete : 'cascade'
       })
     }
   }
@@ -28,9 +48,11 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     surname: DataTypes.STRING,
     pass: DataTypes.STRING,
-    image: DataTypes.INTEGER,
+    image: DataTypes.STRING,
+    socialId: DataTypes.STRING,
+    provider: DataTypes.STRING,
     addressId: DataTypes.INTEGER,
-    rolId: DataTypes.INTEGER
+    rolId: {type: DataTypes.INTEGER, defaultValue:2}
   }, {
     sequelize,
     modelName: 'User',
